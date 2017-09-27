@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
-namespace Laba3
+namespace laba4
 {
-    class main
+    class Set
     {
+       
+        
+
+         
     }
 }
