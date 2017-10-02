@@ -44,8 +44,21 @@ namespace Laba3
                 listOfCircles[i].R = rnd.Next(0,4);
 
             }
+            double[] arr = new double[4];
+            for(int i = 0; i < 4; i++)
+            {
+                arr[i] = listOfCircles[i].areaCircle();
+            }
+            double min = 999999;
+            double max = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                if (arr[i] < min) min = arr[i];
+                if (arr[i] > max) max = arr[i];
+            }
+            
 
-            int[] repetCircleX = new int[5];
+                int[] repetCircleX = new int[5];
             int[] repetCircleY = new int[5];
             for(int i = 0; i < 3; i++)
             {
@@ -55,18 +68,21 @@ namespace Laba3
                     repetCircleY[i] = i;
 
             }
+            
             Console.WriteLine("по Х лежат на одной прямой окружности номер:");
             int count = 0;
-            while (repetCircleX[count] == 0)
+            for(int i=0;i<3;i++)
             {
-                Console.Write(repetCircleX[count] + ",");
+                Console.Write(repetCircleX[i] + ",");
                 count++;
             }
-            while (repetCircleX[count] == 0)
+            Console.WriteLine();
+            for (int i = 0; i < 3; i++)
             {
-                Console.Write(repetCircleX[count] + ",");
-                count++;
+                Console.Write(repetCircleX[i] + ",");
+               
             }
+            Console.WriteLine();
             var user = new { Name = "Tom", Age = 34 };
             Console.WriteLine(user.Name);
             Console.ReadKey(true);
