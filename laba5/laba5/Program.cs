@@ -9,6 +9,7 @@ namespace laba5
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1689D765-9ECF-40D2-9B4F-9D2A2C1E3412}</ProjectGuid>
+    <ProjectGuid>{1343C2CA-3610-4E42-BC05-B8CCEF2D50DC}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>laba5</RootNamespace>
     <AssemblyName>laba5</AssemblyName>
@@ -40,8 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exam.cs" />
+    <Compile Include="LastExam.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Question.cs" />
+    <Compile Include="Test.cs" />
+    <Compile Include="Trial.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
