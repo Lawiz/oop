@@ -3,56 +3,109 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Security.Cryptography;
+using System.IO;
 
 namespace laba4
 {
-    class Set
+    class Set <universType1> 
     {
-        public List<int> _list;
 
+        public List<universType1> _list;
+        //public void WriteToFile(List<string> list)
+        //{
+        //    string path = @"c:\temp\MyTest.txt";
+        //    File.WriteAllLines(path,list);
+        //}
+        //public void ReadOfFile()
+        //{
+        //    _list.AddRange(File.ReadLines(path));
+        //}
+
+        public  void  Add(universType1 obj)
+        {
+            _list.Add(obj);
+        }
+        public  void Del()
+        {
+            _list.RemoveAt(1);
+        }
+        
+
+         public universType1 LookAt(int index)
+         {
+            return _list[index];
+         }
+        
 
         Set()
         {
-            _list = new List<int>();
-            
+            _list = new List<universType1>();
+
         }
-        public Set(params int[] args)
+        public Set(params universType1[] args)
       : this()
         {
+            if (args == null)
+                throw new Exception();
+                else
             _list.AddRange(args);
+
         }
-        public Set(IEnumerable<int> mas)
+        public Set(IEnumerable<universType1> mas)
       : this()
         {
-            _list.AddRange(mas);
+            if (mas == null)
+                throw new Exception();
+            else
+                _list.AddRange(mas);
         }
-        // перегрузка ++
-        public static Set operator ++(Set obj1)
+        public static bool operator ==(Set<universType1> obj1, Set<universType1> obj2)
         {
+            if (obj1.Equals(obj2))
+                return true;
+            else
+                return false;
+
+
+        }
+        public static bool operator !=(Set<universType1> obj1, Set<universType1> obj2)
+        {
+            if (obj1.Equals(obj2))
+                return false;
+            else
+                return true;
+
+        }
+
+        // перегрузка ++
+        public static Set<universType1> operator ++(Set<universType1> obj1)
+        {
+            universType1[] arrOfType = new universType1[10];
             Random rnd = new Random();
-            obj1._list.Add(rnd.Next(1, 40));
+
+            obj1._list.Add(arrOfType[rnd.Next(0, 9)]);
             return obj1;
         }
 
-        public void Delete(int elem)
+        public void Delete(universType1 elem)
         {
             _list.Remove(elem);
         }
         // перегрузка +
-        public static Set operator +(Set obj1, Set obj2)
+        public static Set<universType1> operator +(Set<universType1> obj1, Set<universType1> obj2)
         {
             //Set result = new Set();
             //result._list =(List<int>) obj1._list.Union(obj2._list);
             //return result;
 
-            Set result = new Set();
+            Set<universType1> result = new Set<universType1>();
             result._list.AddRange(obj1._list);
-            for(int index_1=0;index_1<obj2._list.Count;index_1++)
+            for (int index_1 = 0; index_1 < obj2._list.Count; index_1++)
             {
                 int count = 0;
-                for(int index_2=0;index_2<obj1._list.Count;index_2++)
+                for (int index_2 = 0; index_2 < obj1._list.Count; index_2++)
                 {
-                    if (obj2._list[index_1] == obj1._list[index_2])
+                    if (obj2._list[index_1].Equals(obj2._list[index_2]))
                         count++;
                 }
                 if (count == 0)
@@ -62,9 +115,9 @@ namespace laba4
             return result;
         }
         // разность множеств
-        public Set Except(List<int> Source)
+        public Set<universType1> Except(List<universType1> Source)
         {
-            return new Set(_list.Except(Source));
+            return new Set<universType1>(_list.Except(Source));
         }
         public override string ToString()
         {
@@ -72,33 +125,33 @@ namespace laba4
         }
         //перегрузка неявного инт
 
-        public static implicit operator int(Set p)
+        public static implicit operator int(Set<universType1> p)
         {
             return p._list.Count();
         }
         //доступ к элементу
-        public static int operator %(Set obj, int index)
+        public static universType1 operator %(Set<universType1> obj, int index)
         {
             return obj._list[index];
         }
         //вложенный метод шифрования
-        public static class StringExtenction
-        {
-            public static string Extenction(Set p)
-            {
-                int mas = 0;
-                foreach (int i in p._list)
-                {
-                    mas += p._list[i];
-                }
-                mas = mas / 2 * 40 + 1;
-                return mas.ToString();
-            }
-        }
+        //public static class StringExtenction
+        //{
+        //    public static string Extenction(Set<universType1> p)
+        //    {
+        //        universType1 mas = 0;
+        //        foreach (int i in p._list)
+        //        {
+        //            mas += p._list[i];
+        //        }
+        //        mas = mas / 2 * 40 + 1;
+        //        return mas.ToString();
+        //    }
+        //}
         // вложенная проверка на упорядоченность
         public static class StreamlineMany
         {
-            public static List<int> Streamline(Set m)
+            public static List<universType1> Streamline(Set<universType1> m)
             {
                 m._list.Sort();
                 return m._list;
@@ -130,68 +183,9 @@ namespace laba4
                     return Name + " " + ID + " " + Organization;
                 }
             }
-
-            class testSet
-            {
-                public static void Main()
-                {
-                    Console.OutputEncoding = System.Text.Encoding.UTF8;
-
-
-                    void printList(List<int> p)
-                    {
-                        for (var index = 0; index < p.Count; index++)
-                        {
-                            Console.Write(p[index] + " ");
-                        }
-
-                    }
-
-
-                    Set set_1 = new Set(1,2,3,4,5);
-                    Set set_2 = new Set(1,2,8,9,0);
-                   
-                    Console.WriteLine("первое множнство");
-                    printList(set_1._list);
-                    Console.WriteLine("");
-
-
-
-                    Console.WriteLine("второе множество");
-                    printList(set_2._list);
-                    Console.WriteLine("");
-
-
-                    Console.WriteLine("перегрузка +");
-                    Set resultOperetionMas = new Set();
-                    resultOperetionMas = set_1 + set_2;
-                    printList(resultOperetionMas._list);
-                    Console.WriteLine("");
-
-
-                    Console.WriteLine("перегрузка ++");
-                    Set resultOperationIncriment = new Set();
-                    resultOperetionMas = set_1++;
-                    printList(resultOperetionMas._list);
-                    Console.WriteLine("");
-
-
-                    Console.Write("дата создания  ");
-                    CretionDate dataOfcreate = new CretionDate();
-                    Console.WriteLine(dataOfcreate.CretionData);
-
-                    Console.Write("владулуец ");
-                    owner owner_1 = new owner();
-                    Console.WriteLine(owner_1.ToString());
-
-                    Console.ReadKey();
-                }
-
-            }
-
         }
-
-
     }
 }
+
+          
 

@@ -4,12 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1343C2CA-3610-4E42-BC05-B8CCEF2D50DC}</ProjectGuid>
+    <ProjectGuid>{D45B48F5-F83E-4B85-8DED-D4F2FAB0F407}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>laba5</RootNamespace>
-    <AssemblyName>laba5</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>laba10</RootNamespace>
+    <AssemblyName>laba10</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,19 +38,17 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exam.cs" />
-    <Compile Include="LastExam.cs" />
+    <Compile Include="ArrayListController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Question.cs" />
-    <Compile Include="Questionexception.cs" />
-    <Compile Include="Test.cs" />
-    <Compile Include="TestExecpetion.cs" />
-    <Compile Include="Trial.cs" />
-    <Compile Include="trialexecein.cs" />
+    <Compile Include="secondController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

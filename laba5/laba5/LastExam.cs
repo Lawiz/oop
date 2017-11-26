@@ -9,9 +9,6 @@ namespace laba5
     {
         public string nameOfHEI { get; set; }
         public int passingScore { get; set; }
-        public bool admissionCheck()
-        {
-            if()
-        }
+       
     }
 }
