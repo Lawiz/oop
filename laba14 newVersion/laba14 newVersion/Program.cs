@@ -12,15 +12,17 @@ namespace laba14_newVersion
 		static void Main(string[] args)
 		{
 
-			ArrayListController arr = new ArrayListController(10);
-			var copyToArr= SerializbleController.bynarySerializToFile(arr.arr1);
-			foreach(var i in (ArrayList)copyToArr)
-			{
-				Console.WriteLine(i);
-			}
-			Console.ReadKey();
-			//SynchronousSocketListener.startServer();
-			
+			//ArrayListController arr = new ArrayListController(10);
+			//var copyToArr= SerializbleController.bynarySerializToFile(arr.arr1);
+			//foreach(var i in (ArrayList)copyToArr)
+			//{
+			//	Console.WriteLine(i);
+			//}
+			//Console.ReadKey();
+			SynchronousSocketListener.startServer();
+			//SerializbleController.exampleXPath();
+			//SerializbleController.exampelLINQInXml();
+
 		}
 	}
 }

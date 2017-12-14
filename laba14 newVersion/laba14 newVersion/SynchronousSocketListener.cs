@@ -31,7 +31,7 @@ namespace laba14_newVersion
 						Console.WriteLine("Подключен клиент. Выполнение запроса...");
 
 						NetworkStream stream = client.GetStream();
-
+						
 						string response = "Привет мир";
 						byte[] data = Encoding.UTF8.GetBytes(response);
 
